@@ -1,14 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import {createRoot} from 'react-dom/client'
+import { BrowserRouter } from "react-router-dom";
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Store} from "./model/store";
+import {Post} from "./model/post";
+import {Comment} from "./model/comment";
+import {User} from "./model/user";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(
+    document.getElementById("root")
+);
+Store.registerRootUrl('https://jsonplaceholder.typicode.com/')
+Store.registerModel('post', Post);
+Store.registerModel('comment', Comment);
+Store.registerModel('user', User);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

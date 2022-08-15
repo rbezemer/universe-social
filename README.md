@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Universe Social A sample React App Twitter Clone
 
+## Getting Started
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+pull the source and run the following from the source directory
 
-In the project directory, you can run:
+### `npm install`
+
+then you can host the project locally by running the following:
 
 ### `npm start`
 
@@ -19,52 +22,43 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# About
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is the first React Application I've worked on in a number of years, so hopefully I'm not to out of touch
+with modern React patterns. Read through a number of tutorials on React and picked a number of tools to get a sample project out.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project used the following [guidelines](https://github.com/onuniverse/sample-project-guidelines/blob/master/React.md) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project uses a few tools to speed up the development.
 
-### `npm run eject`
+for content it uses : [jsonplaceholder](https://jsonplaceholder.typicode.com)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+It uses Create React App to bootstrap the project
+It uses [react-router](https://reactrouter.com/docs/en/v6) for managing routing state and transitioning between views
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It uses [materialize](https://materializecss.com/) for styling, it's a simple material.io sass styling library
+It also uses SASS for styling mostly because I tend to use it by default on most of my frontend projects
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Basic Architecture
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+In Models, there is a really basic store and model classes.
+the store abstracts away loading the models, however it's pretty basic, I started adding some
+simple caching but it's questionable at best, I left it as is in the interest of time, but at the 
+end of the day if I wanted to get more complex I would probably look at using something like
+react-orm.
 
-## Learn More
+The views are stored in the main src directory and are roughly structed in the following way:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+App -> TitleBar
+    -> ContentBody -> Posts - list of all posts
+                   -> PostDetails - Post Details with comments
+                   -> Profile - Authors "profile" page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Navigation between the posts authors / post details is done by the green buttons on the bottom of the
+post (Comments / User Profile)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#TODO
+ - Had better caching in the store
+ - Better testing, i focused on testing the store and low level components, but ran out of time to do much functional level tests on the high level components
+ - More time on styling, relied a lot on just basic look of materialize.
+ - more function level documentation
