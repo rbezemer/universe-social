@@ -50,15 +50,18 @@ react-orm.
 The views are stored in the main src directory and are roughly structed in the following way:
 
 App -> TitleBar
+
     -> ContentBody -> Posts - list of all posts
+
                    -> PostDetails - Post Details with comments
+
                    -> Profile - Authors "profile" page
 
 Navigation between the posts authors / post details is done by the green buttons on the bottom of the
 post (Comments / User Profile)
 
 #TODO
- - Had better caching in the store
+ - Have better caching in the store
  - Better testing, i focused on testing the store and low level components, but ran out of time to do much functional level tests on the high level components
  - More time on styling, relied a lot on just basic look of materialize.
  - more function level documentation
