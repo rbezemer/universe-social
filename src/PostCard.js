@@ -45,9 +45,20 @@ class PostCard extends Component {
         }
     }
     /**
-     * Load in the user data when the post changes
+     * Load in the user data when the post changes,
+     * seems to be some cases where this isn't called as expected
      */
     componentDidUpdate(prevProps) {
+        const {contentData} = this.props;
+        if (contentData.userId) {
+            Store.find('user', contentData.userId).then((result) => {
+                this.setState({
+                    user: result,
+                })
+            });
+        }
+    }
+    componentDidMount() {
         const {contentData} = this.props;
         if (contentData.userId) {
             Store.find('user', contentData.userId).then((result) => {
